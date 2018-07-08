@@ -1,2 +1,2 @@
-# glfw-
-C++17 wrapper around GLFW-3.3
+# glfw++
+glfw++ is a C++17 wrapper around GLFW-3.3
