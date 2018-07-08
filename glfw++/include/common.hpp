@@ -72,6 +72,8 @@ namespace glfw
 	// input.hpp
 	namespace input
 	{
+		enum class Mode : int;
+		enum class CursorMode : int;
 		enum class Key : int;
 		enum class MouseButton : int;
 		enum class JoystickId : int;

@@ -1,6 +1,7 @@
 #pragma once
 #include "aspectratio.hpp"
 #include "image.hpp"
+#include "input.hpp"
 #include "rectangle.hpp"
 
 namespace glfw
@@ -206,9 +207,39 @@ namespace glfw
 	}
 
 	template<class AttributeType>
-	AttributeType Window::attribute( WindowHint hint ) const
+	inline AttributeType Window::attribute( WindowHint hint ) const
 	{
-		return static_cast<AttributeType>( ::glfwGetWindowAttrib( *this, static_cast<std::underlying_type<WindowHint>::type>( hint ) ) );
+		return static_cast<AttributeType>( ::glfwGetWindowAttrib( *this, static_cast<std::underlying_type_t<WindowHint>>( hint ) ) );
+	}
+
+	inline input::Action Window::mouseButton( input::MouseButton button ) const
+	{
+		return static_cast<input::Action>( ::glfwGetMouseButton( *this, static_cast<std::underlying_type_t<input::MouseButton>>( button ) ) );
+	}
+
+	inline void Window::cursorPosition( const Point2d& position )
+	{
+		::glfwSetCursorPos( *this, position.x, position.y );
+	}
+
+	inline Point2d Window::cursorPosition( void ) const
+	{
+		Point2d		cursorPos = Point2d();
+
+		::glfwGetCursorPos( *this, &cursorPos.x, &cursorPos.y );
+		return cursorPos;
+	}
+
+	template<class ModeType>
+	inline void Window::inputMode( input::Mode mode, const ModeType& value )
+	{
+		::glfwSetInputMode( *this, static_cast<std::underlying_type_t<input::Mode>>( mode ), static_cast<int>( value ) );
+	}
+
+	template<class ModeType>
+	inline ModeType Window::inputMode( input::Mode mode ) const
+	{
+		return static_cast<ModeType>( ::glfwGetInputMode( *this, static_cast<std::underlying_type_t<input::Mode>>( mode ) ) );
 	}
 
 	//========================================

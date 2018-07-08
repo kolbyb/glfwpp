@@ -4,6 +4,36 @@ namespace glfw
 {
 	namespace input
 	{
+		enum class Mode : int
+		{
+			// CursorMode
+			Cursor = GLFW_CURSOR,
+			// Must be either [true] to enable sticky keys, or [false] to disable it.
+			// If sticky keys are enabled, a key press will ensure that glfwGetKey returns [Action::Press]
+			// the next time it is called even if the key had been released before the call.
+			// This is useful when you are only interested in whether keys have been pressed but not when or in which order.
+			StickyKeys = GLFW_STICKY_KEYS,
+			// Must be either [true] to enable sticky mouse buttons, or [false] to disable it.
+			// If sticky mouse buttons are enabled, a mouse button press will ensure that "glfwGetMouseButton" returns
+			// [Action::Press] the next time it is called even if the mouse button had been released before the call.
+			// This is useful when you are only interested in whether mouse buttons have been pressed but not when or in which order.
+			StickyMouseButtons = GLFW_STICKY_MOUSE_BUTTONS,
+			// Must be either [true] to enable lock key modifier bits, or [false] to disable them.
+			// If enabled, callbacks that receive modifier bits will also have the [Modifiers::CapsLock] bit set
+			// when the event was generated with Caps Lock on, and the [Modifiers::NumLock] bit when Num Lock was on.
+			LockKeyMods = GLFW_LOCK_KEY_MODS,
+		};
+
+		enum class CursorMode : int
+		{
+			// Makes the cursor visible and behaving normally.
+			Normal = GLFW_CURSOR_NORMAL,
+			// Makes the cursor invisible when it is over the client area of the window but does not restrict the cursor from leaving.
+			Hidden = GLFW_CURSOR_HIDDEN,
+			// Hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera controls.
+			Disabled = GLFW_CURSOR_DISABLED,
+		};
+
 		enum class Key : int
 		{
 			Unknown = GLFW_KEY_UNKNOWN,

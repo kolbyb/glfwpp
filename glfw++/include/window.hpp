@@ -156,6 +156,10 @@ namespace glfw
 		~Window( void );
 
 
+		//========================================
+		//	Global
+		//========================================
+
 		// Processes all pending events.
 		static inline void PollEvents( void );
 		// Waits until events are queued and processes them.
@@ -186,6 +190,10 @@ namespace glfw
 		// Returns all glfw windows.
 		static WindowWeakList AllWindows( void ) noexcept;
 
+
+		//========================================
+		//	Generic
+		//========================================
 
 		// Sets the close flag of this window.
 		inline void shouldClose( bool close );
@@ -252,10 +260,27 @@ namespace glfw
 		inline void attribute( WindowHint hint, const HintType& value );
 		// Returns an attribute of this window.
 		template<class AttributeType=int>
-		AttributeType attribute( WindowHint hint ) const;
+		inline AttributeType attribute( WindowHint hint ) const;
 
 		//========================================
-		// Attributes
+		//	Input
+		//========================================
+
+		// Returns the current state of the provided mouse button.
+		inline input::Action mouseButton( input::MouseButton button ) const;
+		// Sets the current cursor position of this window.
+		inline void cursorPosition( const Point2d& position );
+		// Returns the current cursor position of this window.
+		inline Point2d cursorPosition( void ) const;
+		// Sets an input mode of this window.
+		template<class ModeType>
+		inline void inputMode( input::Mode mode, const ModeType& value );
+		// Returns the value of an input mode of this window.
+		template<class ModeType=int>
+		inline ModeType inputMode( input::Mode mode ) const;
+
+		//========================================
+		//	Attributes
 		//========================================
 
 		// WindowHint::Focused
@@ -288,7 +313,7 @@ namespace glfw
 		inline OpenGLProfile openGLProfile( void ) const;
 
 		//========================================
-		// Generic Events
+		//	Generic Events
 		//========================================
 		PositionEvent& positionEvent( void );
 		SizeEvent& sizeEvent( void );
@@ -301,7 +326,7 @@ namespace glfw
 		WindowContentScaleEvent& windowContentScaleEvent( void );
 
 		//========================================
-		// Input Events
+		//	Input Events
 		//========================================
 		MouseButtonEvent& mouseButtonEvent( void );
 		CursorPositionEvent& cursorPositionEvent( void );

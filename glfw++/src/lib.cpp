@@ -82,6 +82,6 @@ std::ostream& operator<<( std::ostream& out, const glfw::Error& error ) noexcept
 	case glfw::Error::PlatformError:		return out << "Platform Error";
 	case glfw::Error::FormatUnavailable:	return out << "Format Unavailable";
 	case glfw::Error::NoWindowContext:		return out << "No Window Context";
-	default:								return out << static_cast<std::underlying_type<glfw::Error>::type>( error );
+	default:								return out << static_cast<std::underlying_type_t<glfw::Error>>( error );
 	}
 }
