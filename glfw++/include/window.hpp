@@ -50,6 +50,11 @@ namespace glfw
 		ContextReleaseBehavior = GLFW_CONTEXT_RELEASE_BEHAVIOR,
 		ContextNoError = GLFW_CONTEXT_NO_ERROR,
 		ContextCreationAPI = GLFW_CONTEXT_CREATION_API,
+		RetinaFrameBuffer = GLFW_COCOA_RETINA_FRAMEBUFFER,
+		FrameName = GLFW_COCOA_FRAME_NAME,
+		GraphicsSwitching = GLFW_COCOA_GRAPHICS_SWITCHING,
+		ClassName = GLFW_X11_CLASS_NAME,
+		InstanceName = GLFW_X11_INSTANCE_NAME,
 	};
 
 	enum class ClientAPI : int
@@ -336,6 +341,11 @@ namespace glfw
 		CharacterEvent& characterEvent( void );
 		CharacterModifierEvent& characterModifierEvent( void );
 		FileDropEvent& fileDropEvent( void );
+
+		//========================================
+		//	Utilities
+		//========================================
+		bool valid( void ) const noexcept;
 
 	protected:
 

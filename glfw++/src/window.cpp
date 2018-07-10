@@ -135,13 +135,19 @@ namespace glfw
 	Window::Window( int width, int height, std::string_view title, Monitor monitor, glfw::WindowPtr share ) :
 		window_( ::glfwCreateWindow( width, height, title.data(), monitor, ( share ? share->window_.get() : nullptr ) ) )
 	{
-		assert( *this );
-		WindowHolder::instance().registerWindow( this );
+		assert( window_ );
+		if ( valid() )
+		{
+			WindowHolder::instance().registerWindow( this );
+		}
 	}
 
 	Window::~Window( void )
 	{
-		WindowHolder::instance().unregisterWindow( this );
+		if ( valid() )
+		{
+			WindowHolder::instance().unregisterWindow( this );
+		}
 	}
 
 	std::size_t Window::Count( void ) noexcept
@@ -245,5 +251,10 @@ namespace glfw
 	Window::FileDropEvent& Window::fileDropEvent( void )
 	{
 		return fileDropEvent_;
+	}
+
+	bool Window::valid( void ) const noexcept
+	{
+		return window_ != nullptr;
 	}
 }
