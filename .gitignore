@@ -1,0 +1,28 @@
+# External junk
+.vscode/*
+.DS_Store
+_ReSharper*
+*.opensdf
+*.sdf
+*.suo
+*.dir
+*.vcxproj*
+*.sln
+Win32
+x64
+Debug
+Release
+MinSizeRel
+RelWithDebInfo
+*.xcodeproj
+
+# Make files
+Makefile
+*.make
+
+# Build files
+obj/*
+
+# Compiled binaries
+bin_x86/*
+bin_x64/*
