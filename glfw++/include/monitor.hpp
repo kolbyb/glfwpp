@@ -14,6 +14,8 @@ namespace glfw
 
 		AspectRatio aspectRatio( void ) const;
 
+		inline operator Point2i( void ) noexcept;
+
 		inline static const GLFWvidmode	Invalid = GLFWvidmode{0};
 	};
 	bool operator==( const AspectRatio& lhs, const VideoMode& rhs ) noexcept;
