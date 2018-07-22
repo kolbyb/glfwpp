@@ -25,9 +25,9 @@ HelloWorldApp::HelloWorldApp( std::string_view title )
 	if ( initialized() )
 	{
 		// Register a handler for keyboard character input events
-		window_->characterEvent() += std::bind( &HelloWorldApp::handleCharacter, this, std::placeholders::_1 );
+		window_->characterEvent() += [this]( const auto& codepoint ){ handleCharacter( codepoint ); };
 		// Register a handler for file drop events
-		window_->fileDropEvent() += std::bind( &HelloWorldApp::handleFileDrops, this, std::placeholders::_1 );
+		window_->fileDropEvent() += [this]( const auto& pathList ){ handleFileDrops( pathList ); };
 
 		// Set an initial position.
 		// Note we're using glfw::Point2f, but position requires a glfw::Point2i.
