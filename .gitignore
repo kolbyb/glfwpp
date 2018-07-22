@@ -20,3 +20,8 @@ obj/*
 # Compiled binaries
 bin_x86/*
 bin_x64/*
+*.exe
+*.dll
+*.lib
+*.a
+*.so
