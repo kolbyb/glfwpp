@@ -8,12 +8,6 @@ _ReSharper*
 *.dir
 *.vcxproj*
 *.sln
-Win32
-x64
-Debug
-Release
-MinSizeRel
-RelWithDebInfo
 *.xcodeproj
 
 # Make files
