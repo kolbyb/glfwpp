@@ -2,6 +2,11 @@
 
 namespace glfw
 {
+	inline VideoMode::operator Point2i( void ) noexcept
+	{
+		return Point2i( width, height );
+	}
+
 	template<class UserPointerType>
 	void Monitor::userPointer( UserPointerType* pointer )
 	{
