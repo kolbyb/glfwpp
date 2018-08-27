@@ -25,3 +25,9 @@ bin_x64/*
 *.lib
 *.a
 *.so
+*.db
+*.opendb
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+*.ipch
+/.vs/VSWorkspaceState.json

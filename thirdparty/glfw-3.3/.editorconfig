@@ -1,11 +1,11 @@
 root = true
 
-# 4 tab indentation
-[*.{c,cpp,h,hpp,inl,lua}]
+# 4 space indentation
+[*.{c,h,m,in}]
 charset = unset
 end_of_line = unset
 indent_size = 4
-indent_style = tab
+indent_style = space
 insert_final_newline = false
 max_line_length = off
 trim_trailing_whitespace = true
